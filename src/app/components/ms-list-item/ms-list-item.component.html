@@ -1,0 +1,42 @@
+<!--<div *ngFor="let i of this.docs | async " class = "container">
+    <ul class = "item">
+        <li>Név: {{ i.subject }}</li>
+        <li>Kor: {{ i.medication }}</li>
+        <li>Magasság: {{ i.status }}</li>
+    </ul>
+</div> -->
+<div class = container>
+  <mat-form-field class="filter">
+    <mat-label>Keresés</mat-label>
+    <!--Filter meghívása-->
+    <input matInput (keyup)="applyFilter($event)" placeholder="Név, gyógyszer, státusz..." #input class="input">
+  </mat-form-field>
+  <div class = "shadow">
+    <table mat-table [dataSource]="docs" class="table">
+      
+      <!-- Medication Column -->
+      <ng-container matColumnDef="medication">
+        <th mat-header-cell *matHeaderCellDef> Gyógyszer </th>
+        <td mat-cell *matCellDef="let element"> {{element.medication}} </td>
+      </ng-container>
+    
+      <!-- Subject Column -->
+      <ng-container matColumnDef="subject">
+        <th mat-header-cell *matHeaderCellDef> Alany </th>
+        <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+      </ng-container>
+    
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Státusz </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row" (click)="onClick(row.id)"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">"{{input.value}}" nem található...</td>
+      </tr> 
+    </table>
+  </div>
+</div>

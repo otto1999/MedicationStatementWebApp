@@ -1,0 +1,21 @@
+.toolbar{
+    box-shadow: rgb(179, 220, 255) 0px 20px 30px -10px;
+    display: felx;
+    justify-content: space-between;
+    background-color: rgb(247, 247, 247)
+}
+.add{
+    padding: 2px;
+    border-radius: 1em;
+    transition: 0.5s;
+}
+
+h1:hover  {
+    cursor: pointer;
+}
+
+.add:hover{
+    cursor: pointer;
+    box-shadow: rgb(199, 229, 255) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+ 

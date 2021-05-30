@@ -1,0 +1,41 @@
+<div class="containsAll">
+    <mat-card class="container">
+        
+        <mat-card-title class='title'>Részletek {{this.currentMs.subject}} alany gyógyszeres kezeléséről</mat-card-title>
+        <mat-card-content class='content'>
+            <ul (click) = "openMatDialog(this.currentMs.basedOn,'basedOn')">Mire épül a gyógyszeres kezelés?
+                <li *ngFor="let bOn of this.currentMs.basedOn">{{bOn}}</li>
+            </ul>
+            <ul (click) = "openMatDialog(this.currentMs.partOf,'partOf')">Milyen terápia része?
+                <li *ngFor="let bOn of this.currentMs.partOf">{{bOn}}</li>
+            </ul>
+            <ul (click) = "openMatDialog(this.currentMs.status,'status')">Gyógyszeres kezelés státusza:
+                <li>{{this.currentMs.status}}</li>
+            </ul>
+            <ul (click) = "openMatDialog(this.currentMs.statusReason, 'statusReason')">Gyógyszeres kezelés státuszának oka:
+                <li *ngFor="let bOn of this.currentMs.statusReason">{{bOn}}</li>
+            </ul>
+            <ul (click) = "openMatDialog(this.currentMs.category, 'category')">Gyógyszerhasználat módja:
+                <li>{{this.currentMs.category}}</li>
+            </ul>
+            <ul (click) = "openMatDialog(this.currentMs.medication, 'medication')">Gyógyszeres kezeléshez használt gyógyszer:
+                <li>{{this.currentMs.medication}}</li>
+            </ul>
+            <ul (click) = "openMatDialog(this.currentMs.subject, 'subject')">Gyógyszeres kezelés alanya:
+                <li>{{this.currentMs.subject}}</li>
+            </ul>
+            <ul (click) = "openMatDialog(this.currentMs.reasonCode, 'reasonCode')">Gyógyszerhasználat oka:
+                <li *ngFor="let bOn of this.currentMs.reasonCode">{{bOn}}</li>
+            </ul>
+            <ul (click) = "openMatDialog(this.currentMs.reasonReferenc, 'reasonReference')">Gyógyszerhasználat okának alátámasztása:
+                <li *ngFor="let bOn of this.currentMs.reasonReferenc">{{bOn}}</li>
+            </ul>
+            <ul (click) = "openMatDialog(this.currentMs.informationSource, 'informationSource')">Információforrás a gyógyszerről:
+                <li>{{this.currentMs.informationSource}}</li>
+            </ul>
+            <ul (click) = "openMatDialog(this.currentMs.note, 'note')">Egyébb megjegyzés a gyógyszeres kezelésről:
+                <li *ngFor="let bOn of this.currentMs.note">{{bOn}}</li>
+            </ul>
+        </mat-card-content>
+    </mat-card> 
+</div>

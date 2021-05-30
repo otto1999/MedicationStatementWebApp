@@ -1,0 +1,45 @@
+<div class = "container">
+    <ng-container *ngIf="this.data.isAdd; elseh">
+        <h2>Hozzáadás</h2>
+    </ng-container>
+    <ng-template #elseh>
+        <h2>Frissítés</h2>
+    </ng-template>
+    
+    <form [formGroup] = "valami">
+        <ng-container *ngIf="this.data.inputDataType == 'note'">
+            <mat-form-field>
+                <mat-label *ngIf="this.data.isAdd">Egyébb megjegyzés hozzáadása</mat-label>
+                <mat-label *ngIf="!this.data.isAdd">Egyébb megjegyzés frissítése</mat-label>
+                <textarea matInput formControlName="ez" placeholder="{{this.data.inputData}}" value="{{this.data.inputData}}"></textarea>
+            </mat-form-field>
+        </ng-container>
+        <ng-container *ngIf="this.data.inputDataType == 'status'";>
+            <mat-form-field appearance="fill">
+                <mat-label> Státusz Frissítése</mat-label>
+                <select matNativeControl required formControlName="ez" required>
+                  <option label={{this.data.inputData}}></option>
+                  <option value="Aktív">Aktív</option>
+                  <option value="Befejezett">Befejezett</option>
+                  <option value="Hibába futott">Hibába futott</option>
+                  <option value="Tervezett">Tervezett</option>
+                  <option value="Leállított">Leállított</option>
+                  <option value="Fenntartott">Fenntartott</option>
+                  <option value="Nem ismert">Nem ismert</option>
+                  <option value="Nem használt">Nem használt</option>
+                </select>
+            </mat-form-field>
+        </ng-container>
+        <ng-container *ngIf="this.data.inputDataType != 'status' && this.data.inputDataType != 'note'">
+            <mat-form-field>
+                <mat-label *ngIf="this.data.isAdd">Hozzáadás</mat-label>
+                <mat-label *ngIf="!this.data.isAdd">Frissítés</mat-label>
+                <input matInput formControlName="ez" placeholder="{{this.data.inputData}}" value="{{this.data.inputData}}">
+            </mat-form-field>
+        </ng-container>
+        
+    </form>
+    <button *ngIf="this.data.isAdd" mat-raised-button [disabled]="valami.invalid"  (click)="onClick()">Hozzáadás</button>
+    <button *ngIf="!this.data.isAdd" mat-raised-button [disabled]="valami.invalid"  (click)="onClick()">Frissítés</button>
+    <button mat-raised-button   (click)="this.dialogRef.close()">Mégsem</button>
+</div>

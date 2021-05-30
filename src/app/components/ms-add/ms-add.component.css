@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;
+    padding: 2%;
+    margin: auto;
+    margin-top: 3%;
+    overflow-y: scroll;
+    box-shadow: rgb(179, 220, 255) 0px 20px 30px -10px;
+    background:rgb(247, 247, 247);
+}
+.container::-webkit-scrollbar{
+    display: none;
+}
+@media only screen and (max-width: 1000px) {
+    .container{
+        width: 90%;
+        height: 80%;
+        margin: 5%;
+    } 
+}

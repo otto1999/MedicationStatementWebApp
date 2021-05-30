@@ -1,0 +1,90 @@
+<form [formGroup]="addForm" class="container">
+    <!--basedOn input-->
+    <mat-form-field>
+        <mat-label>Mire épül a gyógyszeres kezelés?</mat-label>
+        <input matInput formControlName="basedOn"
+               placeholder="Előírás , Javaslat...">
+    </mat-form-field>
+    <!--partOf input--> 
+    <mat-form-field>
+        <mat-label>Milyen terápia része?</mat-label>
+        <input matInput formControlName="partOf"
+               placeholder="Sérülés kezellése...">
+    </mat-form-field>
+    <!--status input-->
+    <mat-form-field appearance="fill">
+        <mat-label>Státusz (kötelező) </mat-label>
+        <select matNativeControl required formControlName="status" required>
+          <option label="Státusz választása"></option>
+          <option value="Aktív">Aktív</option>
+          <option value="Befejezett">Befejezett</option>
+          <option value="Hibába futott">Hibába futott</option>
+          <option value="Tervezett">Tervezett</option>
+          <option value="Leállított">Leállított</option>
+          <option value="Fenntartott">Fenntartott</option>
+          <option value="Nem ismert">Nem ismert</option>
+          <option value="Nem használt">Nem használt</option>
+        </select>
+    </mat-form-field>
+    <!--statusReason input-->
+    <mat-form-field>
+        <mat-label>Jelenlegi státusz oka.</mat-label>
+        <input matInput formControlName="statusReason"
+               placeholder="Indok a jelenlegi státuszra..">
+    </mat-form-field>
+    <!--category input-->
+    <mat-form-field>
+        <mat-label>Gyógyszerhasználat módja.</mat-label>
+        <input matInput formControlName="category"
+               placeholder="Sérülés kezellése...">
+    </mat-form-field>
+    <!--medication input--> 
+    <mat-form-field>
+        <mat-label>Gyógyszeres kezeléshez használt gyógyszer.</mat-label>
+        <input matInput formControlName="medication"
+               placeholder="Gyógyszer neve..">
+    </mat-form-field>
+    <!--Subject input--> 
+    <mat-form-field>
+        <mat-label>Gyógyszeres kezelés alanya.</mat-label>
+        <input matInput formControlName="subject"
+               placeholder="Egy nevet kérek ide">
+    </mat-form-field>
+    <!--effective input-->
+    <mat-form-field appearance="fill">
+        <mat-label>Gyógyszeres kezelés időtartama.</mat-label>
+        <mat-date-range-input formGroupName="effective" [rangePicker]="picker">
+            <input matStartDate formControlName="beginTime" placeholder="Start date">
+            <input matEndDate formControlName="endTime" placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>    
+    </mat-form-field>
+    <!--reasonCode input--> 
+    <mat-form-field>
+        <mat-label>Gyógyszerhasználat oka.</mat-label>
+        <input matInput formControlName="reasonCode"
+               placeholder="Betegség , sérülés .. etc">
+    </mat-form-field>
+    <!--reasonReferenc input--> 
+    <mat-form-field>
+        <mat-label>Gyógyszerhasználat okának alátámasztása.</mat-label>
+        <input matInput formControlName="reasonReferenc"
+               placeholder="Diagnózis , ect...">
+    </mat-form-field>
+    <!--informationSource input--> 
+    <mat-form-field>
+        <mat-label>Információforrás a gyógyszerről.</mat-label>
+        <input matInput formControlName="informationSource"
+               placeholder="Gyártó , személy etc..">
+    </mat-form-field>
+    <!--note input--> 
+    <mat-form-field>
+        <mat-label>Egyébb megjegyzés a gyógyszeres kezelésről.</mat-label>
+        <textarea matInput formControlName="note"
+               placeholder="Egyébb megjegyzés"></textarea>
+    </mat-form-field>
+   
+    <button  type="button" mat-raised-button (click)="addMS()" routerLink="/list" [disabled]="!addForm.valid">Feltöltés</button>
+
+</form>

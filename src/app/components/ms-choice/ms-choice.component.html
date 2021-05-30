@@ -1,0 +1,11 @@
+<div>
+    <ng-container *ngIf="this.data.fromList; else elseTemplate">
+        <button mat-raised-button (click)="onSure()">Törlés</button>
+        <button mat-raised-button (click)="onRoute()" routerLink="/detail/{{this.data.id}}">Részletek</button>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <button *ngIf="this.data.isArray" mat-raised-button (click)="onAdd(true)" >Hozzáad</button>
+        <button mat-raised-button (click)="onAdd(false)">Frissítés</button>
+    </ng-template>
+</div>
+

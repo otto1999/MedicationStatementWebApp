@@ -1,0 +1,16 @@
+<mat-toolbar class=toolbar>
+    <mat-icon>
+        local_hospital
+    </mat-icon>
+    <h1 routerLink='/list'>
+        Medication Statement
+    </h1>
+    <ng-container *ngIf="this.r.url === '/add' || this.r.url.includes('/detail'); else elseTemplate">
+        <mat-icon class="add" routerLink='/list'>arrow_back</mat-icon>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <mat-icon class="add" routerLink='/add'>add</mat-icon>
+    </ng-template>
+    
+
+</mat-toolbar>
